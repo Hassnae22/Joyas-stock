@@ -16,9 +16,8 @@ public class Provider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String providerCode;
-
-    @ManyToMany(mappedBy = "providers")
-    Set<Product> products;
+    private String name;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="provider")
+    private Set<Product> products;
 
 }

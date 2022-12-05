@@ -22,11 +22,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Basic(optional = false)
-    private String name;
-
-    private String description;
-
     private Double price;
 
     @OneToMany(mappedBy = "product")
@@ -36,7 +31,11 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private Integer nmAvailableItems;
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
+
+    private Integer quantity;
 
     private LocalDateTime createdAt;
 
@@ -44,10 +43,4 @@ public class Product {
 
     private LocalDateTime deletedAt;
 
-    @ManyToMany
-    @JoinTable(
-            name = "product_provider",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "provider_id"))
-    Set<Provider> providers;
 }
