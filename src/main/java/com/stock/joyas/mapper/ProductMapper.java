@@ -4,6 +4,9 @@ import com.stock.joyas.dto.ProductDTO;
 import com.stock.joyas.model.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+
+import java.util.Optional;
+
 @Mapper
 public interface ProductMapper {
 
@@ -12,4 +15,6 @@ public interface ProductMapper {
     ProductDTO entityToDto (Product product);
 
     Product dtoToEntity (ProductDTO productDto);
+
+
 }

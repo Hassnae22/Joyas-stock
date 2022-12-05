@@ -5,6 +5,7 @@ import com.stock.joyas.model.Image;
 import com.stock.joyas.model.Provider;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class ProductDTO {
 
     private Long id;
@@ -27,5 +29,5 @@ public class ProductDTO {
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private LocalDateTime deletedAt;
-    Set<ProviderDTO> providers;
+    private ProviderDTO provider;
 }

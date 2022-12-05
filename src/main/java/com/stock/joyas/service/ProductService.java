@@ -10,13 +10,18 @@ public interface ProductService {
 
     ProductDTO getProductById(Long productId);
 
-    List<ProductDTO> getProductOutOfSold();
-
-    List<ProductDTO> getProductByCategoryId(Long categoryId);
-
     List<ProductDTO> getProductByProviderId(Long providerId);
 
+    List<ProductDTO> getProductByCategoryId(Long categoryId);
     ProductDTO saveProduct(ProductDTO productDto);
+
+    List<ProductDTO> getProductOutOfSold();
+
+
+
+
+
+
 
 
 }

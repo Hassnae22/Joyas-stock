@@ -17,9 +17,12 @@ public class ProductBylang {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
+    private String description;
+
     @Enumerated(EnumType.STRING)
     private LangCons langCode;
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
