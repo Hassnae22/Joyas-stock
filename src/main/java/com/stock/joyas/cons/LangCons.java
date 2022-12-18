@@ -3,7 +3,6 @@ package com.stock.joyas.cons;
 public enum LangCons {
     EN("en"),
     FR("fr"),
-    AR("ar"),
     ES("es");
 
     private final String code;
