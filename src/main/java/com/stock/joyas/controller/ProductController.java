@@ -34,7 +34,7 @@ public class ProductController {
     })
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getAllProducts(){
-        log.trace("enter to get all products controller method");
+        log.traceEntry("enter to get all products controller method");
         return log.traceExit(ResponseEntity.ok().body(productService.getAllProducts()));
     }
 
@@ -47,7 +47,7 @@ public class ProductController {
     })
     @GetMapping("/{product_id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable("product_id") Long productId){
-        log.trace("enter to getProductById controller method "+ LogDic.PARAM_ONE, productId);
+        log.traceEntry("enter to getProductById controller method "+ LogDic.PARAM_ONE, productId);
         return log.traceExit(ResponseEntity.ok().body(productService.getProductById(productId)));
     }
 
@@ -60,7 +60,7 @@ public class ProductController {
     })
     @GetMapping("/provider/{provider_id}")
     public ResponseEntity<List<ProductDTO>> getProductsByProvider(@PathVariable("provider_id") Long provider_id){
-        log.trace("enter to getProductsByProvider controller method "+ LogDic.PARAM_ONE, provider_id);
+        log.traceEntry("enter to getProductsByProvider controller method "+ LogDic.PARAM_ONE, provider_id);
         return log.traceExit(ResponseEntity.ok().body(productService.getProductByProviderId(provider_id)));
     }
 
@@ -73,7 +73,7 @@ public class ProductController {
     })
     @GetMapping("/category/{category_id}")
     public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable("category_id") Long category_id){
-        log.trace("enter to getProductsByCategory controller method "+LogDic.PARAM_ONE, category_id);
+        log.traceEntry("enter to getProductsByCategory controller method "+LogDic.PARAM_ONE, category_id);
         return log.traceExit(ResponseEntity.ok().body(productService.getProductByCategoryId(category_id)));
     }
 
@@ -86,7 +86,7 @@ public class ProductController {
     })
     @PostMapping("/update")
      public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO){
-        log.trace("enter to updateProduct controller method "+LogDic.PARAM_ONE, productDTO);
+        log.traceEntry("enter to updateProduct controller method "+LogDic.PARAM_ONE, productDTO);
         //to be changed from return null to return servicemetjod.update
         return log.traceExit(ResponseEntity.ok().body(null));
      }
@@ -100,7 +100,7 @@ public class ProductController {
     })
      @PostMapping("/save")
      public ResponseEntity<ProductDTO> saveProduct(@RequestBody ProductDTO productDTO) {
-         log.trace("enter to saveProduct controller method "+LogDic.PARAM_ONE, productDTO);
+         log.traceEntry("enter to saveProduct controller method "+LogDic.PARAM_ONE, productDTO);
         return  log.traceExit(ResponseEntity.ok().body(productService.saveProduct(productDTO)));
      }
 
@@ -113,7 +113,7 @@ public class ProductController {
     })
      @GetMapping("/outOfStock")
      public ResponseEntity<List<ProductDTO>> getProductsOutOfStock(){
-         log.trace("enter to getProductsOutOfStock controller method ");
+         log.traceEntry("enter to getProductsOutOfStock controller method ");
         return log.traceExit(ResponseEntity.ok().body(productService.getProductOutOfSold()));
      }
 }
