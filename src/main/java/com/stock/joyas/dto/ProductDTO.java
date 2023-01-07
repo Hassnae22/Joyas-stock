@@ -20,12 +20,10 @@ import java.util.Set;
 public class ProductDTO {
 
     private Long id;
-    private String name;
-    private String description;
     private Double price;
     private List<ImageDTO> images;
     private CategoryDTO category;
-    private Integer nmAvailableItems;
+    private Integer quantity;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private LocalDateTime deletedAt;
