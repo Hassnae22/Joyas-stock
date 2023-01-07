@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class ProductByLangDTO {
 
     private Long id;
+    private String description;
     private LangCons langCode;
     private ProductDTO product;
 }
