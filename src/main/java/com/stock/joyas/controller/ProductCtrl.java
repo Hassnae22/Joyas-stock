@@ -22,7 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/products")
 @Tag(name = "Product", description = "The product API")
-public class ProductController {
+public class ProductCtrl {
     private final ProductServImp productService;
 
     @Operation(summary = "Get all products", description = "Get all products", tags = "Product", responses = {

@@ -6,9 +6,7 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name = "PRODUCT_X_LANG")
 public class ProductBylang {

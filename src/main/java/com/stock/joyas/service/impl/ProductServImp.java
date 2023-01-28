@@ -6,6 +6,7 @@ import com.stock.joyas.mapper.ProductMapper;
 import com.stock.joyas.model.Product;
 import com.stock.joyas.model.repository.ProductRepository;
 import com.stock.joyas.service.ProductService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 @Log4j2
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ProductServImp implements ProductService {
 
@@ -22,7 +24,7 @@ public class ProductServImp implements ProductService {
 
     @Override
     public List<ProductDTO> getAllProducts() {
-        log.trace("get all products service");
+        log.traceEntry("get all products service");
         List<ProductDTO> allProducts = productRepository
                 .findAll()
                 .stream()
@@ -33,7 +35,7 @@ public class ProductServImp implements ProductService {
 
     @Override
     public ProductDTO getProductById(Long productId) {
-        log.trace("get product by id service "+ LogDic.PARAM_ONE, productId );
+        log.traceEntry("get product by id service "+ LogDic.PARAM_ONE, productId );
         ProductDTO result = new ProductDTO();
         Optional<Product> product = productRepository.findById(productId);
         if(product.isPresent()){
@@ -45,7 +47,7 @@ public class ProductServImp implements ProductService {
 
     @Override
     public List<ProductDTO> getProductByProviderId(Long providerId) {
-        log.trace("get getProductByProviderId service "+ LogDic.PARAM_ONE, providerId);
+        log.traceEntry("get getProductByProviderId service "+ LogDic.PARAM_ONE, providerId);
         List<ProductDTO> allProducts = productRepository
                 .findByProviderId(providerId)
                 .stream()
@@ -56,7 +58,7 @@ public class ProductServImp implements ProductService {
 
     @Override
     public List<ProductDTO> getProductByCategoryId(Long categoryId) {
-        log.trace("get getProductByCategoryId service "+ LogDic.PARAM_ONE, categoryId);
+        log.traceEntry("get getProductByCategoryId service "+ LogDic.PARAM_ONE, categoryId);
          List<ProductDTO> allProducts = productRepository
                 .findByCategoryId(categoryId)
                 .stream()
@@ -69,7 +71,7 @@ public class ProductServImp implements ProductService {
 
     @Override
     public List<ProductDTO> getProductOutOfSold() {
-        log.trace("get getProductOutOfSold service");
+        log.traceEntry("get getProductOutOfSold service");
         List<ProductDTO> allProducts = productRepository
                 .getProductsOutOfStock()
                 .stream()
@@ -81,7 +83,7 @@ public class ProductServImp implements ProductService {
 
     @Override
     public ProductDTO saveProduct(ProductDTO productDto) {
-        log.trace("get saveProduct service");
+        log.traceEntry("get saveProduct service");
         Product product = productRepository.save(ProductMapper.INSTANCE.dtoToEntity(productDto));
         //exception if the object is not inserted
         return log.traceExit(ProductMapper.INSTANCE.entityToDto(product));

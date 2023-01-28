@@ -1,8 +1,5 @@
 package com.stock.joyas.dto;
 
-import com.stock.joyas.model.Product;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
