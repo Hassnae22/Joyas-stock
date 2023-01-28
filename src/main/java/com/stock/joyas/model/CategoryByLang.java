@@ -8,25 +8,18 @@ import jakarta.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
-@Table(name = "CATEGORY_X_LANG")
+@Table(name = "CATEGORY_X_LANG", indexes = @Index(name = "categoryLangIndex", columnList = "category_id, langCode", unique = true))
 public class CategoryByLang {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
-    private String description;
-
     @Enumerated(EnumType.STRING)
     private LangCons langCode;
-
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 }

@@ -2,20 +2,17 @@ package com.stock.joyas.model;
 
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.NotFound;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Product {
 
     @Id
