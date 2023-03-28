@@ -1,9 +1,9 @@
 package com.stock.joyas.cons;
 
 public enum LangCons {
-    EN("en"),
-    FR("fr"),
-    ES("es");
+    EN("EN"),
+    FR("FR"),
+    ES("ES");
 
     private final String code;
 
@@ -15,3 +15,4 @@ public enum LangCons {
         return this.code;
     }
 }
+
